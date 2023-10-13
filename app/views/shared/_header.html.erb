@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="container-fluid">
       <%= link_to "HOME", root_path %>
-      
+
       <% if user_signed_in? %>
         <div class="dropdown">
           <span class="nav-item">
@@ -17,21 +17,21 @@
             <hr class="DropdownMenu_hr">
 
             <li class="Dropdown-Menu_item">
-              <%= link_to "キープしてるスタイル", keep_path %>
+              <%= link_to "キープしてるスタイル", root_path %>
             </li>
 
             <li class="Dropdown-Menu_item">
-              <%= link_to "自分で投稿したスタイル", own_styles_path %>
+              <%= link_to "自分で投稿したスタイル", root_path %>
             </li>
 
             <li class="Dropdown-Menu_item">
-              <%= link_to "アカウント設定", users_account_path %>
+              <%= link_to "アカウント設定", root_path %>
             </li>
 
             <hr class="DropdownMenu_hr">
 
             <li class="Dropdown-Menu_item">
-              <%= link_to "ログアウト", destory_user_session_path %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             </li>
           </ul>
         </div>
