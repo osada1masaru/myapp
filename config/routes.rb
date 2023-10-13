@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :styles
 
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
   }
 
   devise_scope :user do
