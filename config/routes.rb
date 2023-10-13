@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'stylas/index'
-  get 'stylas/show'
+  get 'home/index'
+  resources :styles
 
   devise_for :users
 end
