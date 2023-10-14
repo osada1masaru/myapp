@@ -64,6 +64,6 @@ end
 
 gem 'sassc-rails'
 gem 'cssbundling-rails' 
-gem "bootstrap", "~> 5.2"
+gem 'bootstrap', '~> 5.3.0'
 gem 'jquery-rails'
 gem 'mini_racer'
