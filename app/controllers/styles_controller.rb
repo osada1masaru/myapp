@@ -1,10 +1,10 @@
 class StylesController < ApplicationController
   def index
-    @styles = Style.wuth_attached_image
+    @styles = Style.with_attached_image
   end
 
   def show
-    @style = Atyle.find(params[:id])
+    @style = Style.find(params[:id])
   end
 
   def new
@@ -40,6 +40,19 @@ class StylesController < ApplicationController
       flash[:alert] = "スタイルの削除に失敗"
     end
 
-    render_to styles_url
+    redirect_to styles_url
+  end
+
+  def own
+    @style = current_user.styles.with_attached_image
+  end
+
+  private
+
+  def set_own_style
+    @style = current_user.styles.find(params[:id])
+  end
+  def style_params
+    params.require(:style).permit(:name, :menu, :detail, :image)
   end
 end
