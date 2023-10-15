@@ -4,7 +4,9 @@
     <% @styles.each do |style| %>
       <li class="list-group-item">
         <div class="card" style="width: 18rem;">
-          <%= image_tag style_image(style), alt: "スタイル画像", class: "card-img-top" %>
+          <%= link_to style_path(style) do %>
+            <%= image_tag style_image(style), alt: "スタイル画像", class: "card-img-top" %>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title">
               <%= style.name %>
