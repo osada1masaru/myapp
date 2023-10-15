@@ -44,7 +44,7 @@ class StylesController < ApplicationController
   end
 
   def own
-    @style = current_user.styles.with_attached_image
+    @styles = current_user.styles.with_attached_image
   end
 
   private
@@ -52,6 +52,7 @@ class StylesController < ApplicationController
   def set_own_style
     @style = current_user.styles.find(params[:id])
   end
+
   def style_params
     params.require(:style).permit(:name, :menu, :detail, :image)
   end

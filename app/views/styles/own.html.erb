@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>投稿済み一覧</h1>
+  
+  <% @styles.each do |style| %>
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <%= link_to image_tag(style_image(style), alt: "スタイル画像", class: "img-fluid rounded-start"), style_path(style) %>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"><%= style.name %></h5>
+            <p class="card-text">
+              <%= style.menu %>
+            </p>
+            <p class="card-text">
+              <%= style.detail %>
+            </p>
+            <p class="card-text">
+              <%= style.deta %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

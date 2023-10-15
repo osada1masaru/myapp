@@ -10,7 +10,7 @@
         <ul class="dropdown-menu dropdown-menu-end">
           <li><%= link_to "スタイルの投稿", new_style_path, class: "dropdown-item nav-item" %></li>
           <li><%= link_to "キープしてるスタイル", root_path, class: "dropdown-item nav-item" %></li>
-          <li><%= link_to "自分で投稿したスタイル", root_path, class: "dropdown-item nav-item" %></li>
+          <li><%= link_to "自分で投稿したスタイル", own_styles_path, class: "dropdown-item nav-item" %></li>
           <li><%= link_to "アカウント設定", root_path, class: "dropdown-item nav-item" %></li>
           <li><hr class="dropdown-divider"></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item nav-item" %></li>
