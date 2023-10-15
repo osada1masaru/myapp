@@ -19,6 +19,10 @@
             <p class="card-text">
               <%= style.deta %>
             </p>
+            <button type="button" class="btn btn-outline-info">
+              <%= link_to "編集", edit_style_path(style), class: "text-decoration-none" %>
+            </button>
+            <%= button_to "削除", style_path(style), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger" %>
           </div>
         </div>
       </div>

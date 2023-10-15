@@ -1,4 +1,6 @@
 class StylesController < ApplicationController
+  before_action :set_own_style, only: [:edit, :update, :destroy]
+  
   def index
     @styles = Style.with_attached_image
   end
@@ -33,11 +35,11 @@ class StylesController < ApplicationController
     end
   end
 
-  def destory
-    if @style.destory
-      flash[:notice] = "スタイルが削除されました"
+  def destroy
+    if @style.destroy
+      flash[:notice] = "施設が削除されました。"
     else
-      flash[:alert] = "スタイルの削除に失敗"
+      flash[:alert] = "施設の削除に失敗しました。"
     end
 
     redirect_to styles_url
