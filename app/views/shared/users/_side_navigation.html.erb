@@ -1,8 +1,8 @@
-<ul class="nav nav-pills">
-  <li class="nav-item">
-    <%= link_to "アカウント", users_account_path, class: "nav-link link-body-emphasis" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "プロフィール", users_profile_path, class: "nav-link link-body-emphasis" %>
-  </li>
-</ul>
+<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+  <button type="button" class="btn btn-outline-info <%= active_class_if_account_page %>">
+    <%= link_to "アカウント", users_account_path, class: " link-dark text-decoration-none" %>
+  </button>
+  <button type="button" class="btn btn-outline-info <%= active_class_if_profile_page %>">
+    <%= link_to "プロフィール", users_profile_path, class: "link-dark text-decoration-none" %>
+  </button>
+</div>
