@@ -1,0 +1,31 @@
+
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <%= render "shared/users/side_navigation" %>
+    </div>
+    <div class="col-8">
+      <div class="hstack gap-3">
+        <h2>プロフィール編集</h2>
+      </div>
+
+      <%= form_with model: current_user, url: users_profile_path, method: :patch do |f| %>
+        <form class="col">
+          <div class="mb-3">
+            <%= f.label :name, "名前", class: "form-label row" %>
+            <%= f.text_field :name, class: "form-control form-label row" %>
+          </div>
+          <div class="mb-3">
+            <%= f.label :introduction, "自己紹介", class: "form-label row" %>
+            <%= f.text_field :name, class: "form-control form-label row" %>
+          </div>
+          <div class="mb-3 row">
+            <%= link_to "キャンセル", :back, class: "btn btn-outline-secondary" %>
+            <%= f.submit "保存", class: "btn btn-outline-danger" %>
+          </div>
+        </form>
+      <% end %>
+    </div>
+  </div>
+</div>

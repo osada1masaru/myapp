@@ -1,0 +1,21 @@
+<%= form_with model: @style do |f| %>
+  <form>
+  <div class="mb-3">
+    <%= f.label :name, "スタイル名", class: "form-label" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :menu, "メニュー", class: "form-label" %>
+    <%= f.text_field :menu, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :detail, "スタイルの特徴", class: "form-label" %>
+    <%= f.text_field :detail, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :image, "スタイル画像", class: "form-label" %>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+  <button type="submit" class="btn btn-outline-danger">投稿</button>
+</form>
+<% end %>

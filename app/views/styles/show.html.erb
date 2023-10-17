@@ -1,2 +1,23 @@
-<h1>Styles#show</h1>
-<p>Find me in app/views/styles/show.html.erb</p>
+<div class="container">
+  <h1><%= @style.name %></h1>
+  <div class="card mb-3" style="max-width: 640px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <%= image_tag style_image(@style), alt: "スタイル画像", class: "img-fluid rounded-start" %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <p class="card-text">
+            <%= @style.menu %>
+          </p>
+          <p class="card-text">
+            <%= @style.detail %>
+          </p>
+          <p class="card-text">
+            <%= @style.deta %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

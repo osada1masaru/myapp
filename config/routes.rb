@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  resources :styles
+
+  resources :styles do
+    get :own, on: :collection
+  end
 
   namespace :users do
     resource :profile, only: [:show, :edit, :update], controller: 'profile'
