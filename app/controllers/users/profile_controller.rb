@@ -1,20 +1,24 @@
-class Users::ProfileController < ApplicationController
-  def show; end
+# frozen_string_literal: true
 
-  def edit; end
+module Users
+  class ProfileController < ApplicationController
+    def show; end
 
-  def update
-    if current_user.update(profile_params)
-      redirect_to users_profile_path, notice: "プロフィール情報が変更されました。"
-    else
-      flash.now[:alert] = "プロフィール情報の変更に失敗しました。"
-      render :edit
+    def edit; end
+
+    def update
+      if current_user.update(profile_params)
+        redirect_to users_profile_path, notice: 'プロフィール情報が変更されました。'
+      else
+        flash.now[:alert] = 'プロフィール情報の変更に失敗しました。'
+        render :edit
+      end
     end
-  end
 
-  private
+    private
 
-  def profile_params
-    params.require(:user).permit(:image, :name, :introduction)
+    def profile_params
+      params.require(:user).permit(:image, :name, :introduction)
+    end
   end
 end
