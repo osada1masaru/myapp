@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root to: 'home#index'
 
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   namespace :users do
-    resource :profile, only: [:show, :edit, :update], controller: 'profile'
+    resource :profile, only: %i[show edit update], controller: 'profile'
     resource :account, only: :show, controller: 'account'
   end
 

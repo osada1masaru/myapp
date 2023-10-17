@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class StylesController < ApplicationController
-  before_action :set_own_style, only: [:edit, :update, :destroy]
-  
+  before_action :set_own_style, only: %i[edit update destroy]
+
   def index
     @styles = Style.with_attached_image
   end
@@ -19,27 +21,27 @@ class StylesController < ApplicationController
     @style = current_user.styles.build(style_params)
 
     if @style.save
-      redirect_to @style, nitice: "スタイル投稿完了"
+      redirect_to @style, nitice: 'スタイル投稿完了'
     else
-      flash.now[:alert] = "スタイルの投稿に失敗"
+      flash.now[:alert] = 'スタイルの投稿に失敗'
       render :new
     end
   end
 
   def update
     if @style.update(style_params)
-      redirect_to @style, notice: "スタイルの更新完了"
+      redirect_to @style, notice: 'スタイルの更新完了'
     else
-      flash.now[:alert] = "スタイルの更新に失敗"
+      flash.now[:alert] = 'スタイルの更新に失敗'
       render :edit
     end
   end
 
   def destroy
     if @style.destroy
-      flash[:notice] = "施設が削除されました。"
+      flash[:notice] = '施設が削除されました。'
     else
-      flash[:alert] = "施設の削除に失敗しました。"
+      flash[:alert] = '施設の削除に失敗しました。'
     end
 
     redirect_to styles_url
