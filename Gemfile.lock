@@ -160,6 +160,7 @@ GEM
     parser (3.2.2.4)
       ast (~> 2.4.1)
       racc
+    pg (1.5.4)
     popper_js (2.11.8)
     psych (5.1.1.1)
       stringio
@@ -304,6 +305,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   mini_racer
+  pg
   puma (~> 5.0)
   rails (~> 7.0.8)
   rails-i18n
