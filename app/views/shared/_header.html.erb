@@ -1,51 +1,31 @@
-<header>
-  <nav class="navbar">
-    <div class="container-fluid">
-      <%= link_to "HOME", root_path %>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <%= link_to "HOME", root_path, class: "navbar-brand" %>
 
-      <% if user_signed_in? %>
-        <div class="dropdown">
-          <span class="nav-item">
-            <%= current_user.name %>
-          </span>
-
-          <ul class="dropdown-menu DropdownMenu">
-            <li class="Dropdown-Menu_item">
-              <%= link_to "スタイルの投稿", new_style_path %>
-            </li>
-
-            <hr class="DropdownMenu_hr">
-
-            <li class="Dropdown-Menu_item">
-              <%= link_to "キープしてるスタイル", root_path %>
-            </li>
-
-            <li class="Dropdown-Menu_item">
-              <%= link_to "自分で投稿したスタイル", root_path %>
-            </li>
-
-            <li class="Dropdown-Menu_item">
-              <%= link_to "アカウント設定", root_path %>
-            </li>
-
-            <hr class="DropdownMenu_hr">
-
-            <li class="Dropdown-Menu_item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            </li>
-          </ul>
-        </div>
-      <% else %>
-        <ul class="navbar-nav">
-          <li class="nav-item NavItem">
-            <%= link_to "ログイン", new_user_session_path %>
-          </li>
-
-          <li class="nav-item NavItem">
-            <%= link_to "新規登録", new_user_registration_path %>
-          </li>
+    <% if user_signed_in? %>
+      <div class="dropdown btn-group">
+        <button class="btn" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+          アカウント
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><%= link_to "スタイルの投稿", new_style_path, class: "dropdown-item nav-item" %></li>
+          <li><%= link_to "キープしてるスタイル", root_path, class: "dropdown-item nav-item" %></li>
+          <li><%= link_to "自分で投稿したスタイル", root_path, class: "dropdown-item nav-item" %></li>
+          <li><%= link_to "アカウント設定", root_path, class: "dropdown-item nav-item" %></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item nav-item" %></li>
         </ul>
-      <% end %>
-    </div>
-  </nav>
-</header>
+      </div>
+
+    <% else %>
+      <ul class="navbar-nav justify-content-center">
+        <li class="nav-item">
+          <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+</nav>

@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  get 'home/index'
   root to: 'home#index'
   resources :styles
 
+  namespace :users do
+    resource :profile, only: [:show, :edit, :update], controller: 'profile'
+    resource :account, only: :show, controller: 'account'
+  end
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
-
-  devise_scope :user do
-    get '/users/sign_up' => 'devise/registrations#new'
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
 end
